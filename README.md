@@ -5,8 +5,6 @@
 
 Ruby on Rails template with authentication and a basic users migration. Includes testing of users with Factory Bot and RSpec.
 
-![alt text](docs/giphy.gif)
-
 ## 🔨 Tools
 - Ruby on Rails
 - Devise_token_auth
