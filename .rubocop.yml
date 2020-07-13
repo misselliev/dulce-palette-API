@@ -39,6 +39,9 @@ Style/DefWithParentheses:
   Enabled: false
 Style/FrozenStringLiteralComment:
   EnforcedStyle: never
+Style/BlockDelimiters:
+  Exclude:
+    - 'spec/**/*'
 
 Layout/HashAlignment:
   EnforcedColonStyle: key
