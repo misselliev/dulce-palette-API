@@ -17,10 +17,9 @@ ActiveRecord::Schema.define(version: 2020_07_13_213116) do
 
   create_table "palettes", force: :cascade do |t|
     t.text "color_palette", default: [], array: true
-    t.bigint "user_id"
+    t.integer "creator_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_palettes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -42,11 +41,16 @@ ActiveRecord::Schema.define(version: 2020_07_13_213116) do
     t.json "tokens"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
-  add_foreign_key "palettes", "users"
+  add_foreign_key "palettes", "users", column: "creator_id"
 end
