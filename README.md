@@ -1,9 +1,9 @@
 ![beta development](https://img.shields.io/badge/beta-development-green?style=flat-square)
 ![Hireable](https://cdn.rawgit.com/hiendv/hireable/master/styles/default/yes.svg)
 
-# 💻 Dulce-users-API (BETA)
+# 💻 Dulce-palette-API (BETA)
 
-Ruby on Rails template with authentication and a basic users migration. Includes testing of users with Factory Bot and RSpec.
+Ruby on Rails API for Dulce-react-palette. Includes testing with Factory Bot and RSpec.
 
 ## 🔨 Tools
 - Ruby on Rails
