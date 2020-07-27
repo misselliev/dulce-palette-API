@@ -6,5 +6,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   include DeviseTokenAuth::Concerns::User
 
-  validates_presence_of :name, :lastname, :email, :username
+  validates_presence_of :email
+  has_many :palettes, foreign_key: 'creator_id', class_name: 'Palette', dependent: :destroy
 end
