@@ -18,15 +18,15 @@ module Api
       end
 
       def destroy
-        @palette = @current_api_v1_user.palette.find(params[:id])
+        @palette = @current_api_v1_user.palettes.find(params[:id])
         @palette.destroy
       end
 
       private
 
       def palette_params
-        params.permit(:user_id, :color_palette)
+        params.permit(:creator_id, :palette_id)
       end
     end
-  end©
+  end
 end
