@@ -6,5 +6,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   include DeviseTokenAuth::Concerns::User
 
-  validates_presence_of :name, :lastname, :email, :username
+  validates_presence_of :email
 end
