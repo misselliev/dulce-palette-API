@@ -1,12 +1,6 @@
 module Api
   module V1
     class PalettesController < ApplicationController
-      before_action :authenticate_api_v1_user!, only: %i[index show destroy]
-
-      def index
-        @palettes = @current_api_v1_user.palettes
-        render json: @palettes
-      end
 
       def create
         @palette = Palette.create(palette_params)
@@ -18,14 +12,14 @@ module Api
       end
 
       def destroy
-        @palette = @current_api_v1_user.palettes.find(params[:id])
+        @palette = Palettes.find(params[:id])
         @palette.destroy
       end
 
       private
 
       def palette_params
-        params.permit(:creator_id, :palette_id)
+        params.permit(:color_palette)
       end
     end
   end
