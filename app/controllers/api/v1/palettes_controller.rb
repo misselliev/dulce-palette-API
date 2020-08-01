@@ -1,7 +1,6 @@
 module Api
   module V1
     class PalettesController < ApplicationController
-
       def create
         @palette = Palette.create(palette_params)
         if @palette.valid?
