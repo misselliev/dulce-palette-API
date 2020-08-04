@@ -7,5 +7,5 @@ class User < ActiveRecord::Base
   include DeviseTokenAuth::Concerns::User
 
   validates_presence_of :email
-  has_many :palettes, foreign_key: 'creator_id', class_name: 'Palette', dependent: :destroy
+  has_many :favorites, dependent: :destroy
 end

@@ -1,13 +1,6 @@
 module Api
   module V1
-    class SchedulesController < ApplicationController
-      before_action :authenticate_api_v1_user!, only: %i[index create destroy]
-
-      def index
-        @palettes = @current_api_v1_user.palettes
-        render json: @palettes
-      end
-
+    class PalettesController < ApplicationController
       def create
         @palette = Palette.create(palette_params)
         if @palette.valid?
@@ -17,15 +10,20 @@ module Api
         end
       end
 
+      def index
+        @palette = Palette.order('RANDOM()').first
+        render json: @palette
+      end
+
       def destroy
-        @palette = @current_api_v1_user.palettes.find(params[:id])
+        @palette = Palettes.find(params[:id])
         @palette.destroy
       end
 
       private
 
       def palette_params
-        params.permit(:creator_id, :palette_id)
+        params.permit(:color_palette)
       end
     end
   end
