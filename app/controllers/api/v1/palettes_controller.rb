@@ -10,6 +10,11 @@ module Api
         end
       end
 
+      def index
+        @palette = Palette.order('RANDOM()').first
+        render json: @palette
+      end
+
       def destroy
         @palette = Palettes.find(params[:id])
         @palette.destroy
